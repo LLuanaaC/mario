@@ -11,3 +11,9 @@ func _physics_process(delta):
 
 func _on_TimerPatrulha_timeout():
 	direcao *= -1
+
+
+func _on_AreaImpacto_body_entered(body):
+	$Animacao.play("amassado")
+	queue_free()
+

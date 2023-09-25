@@ -31,10 +31,10 @@ func _physics_process(delta):
 		can_double_jump = true
 	if not is_on_floor():
 		velocity.y += gravity
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y = jump_force
 		$Animacao.play()
-	elif can_double_jump and Input.is_action_just_pressed("jump"):
+	elif can_double_jump and Input.is_action_just_pressed("ui_up"):
 		velocity.y = jump_force
 		can_double_jump = false
 		$Animacao.play()
