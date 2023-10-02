@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Cenas/Level.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets Mario/sounds/01. Ground Theme.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Cenas/Bloco.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cenas/inimigo.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets Mario/Assets player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Cenas/Moeda.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets Mario/AtlasTexture/nuvem.tres" type="Texture" id=7]
+[ext_resource path="res://Assets Mario/AtlasTexture/arvore.tres" type="Texture" id=8]
+[ext_resource path="res://Cenas/Portal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets Mario/AtlasTexture/grade.tres" type="Texture" id=10]
 
 [node name="Level" type="Node2D"]
 
@@ -25,14 +29,88 @@ tile_data = PoolIntArray( -196626, 9, 0, -196625, 9, 0, -196624, 9, 0, -196623, 
 stream = ExtResource( 2 )
 
 [node name="Bloco" parent="." instance=ExtResource( 3 )]
-position = Vector2( 610, 315 )
+position = Vector2( 348, 331 )
+
+[node name="Bloco3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 635, 334 )
+
+[node name="Bloco2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 316, 331 )
 
 [node name="inimigo" parent="." instance=ExtResource( 4 )]
 position = Vector2( 661, 432 )
 
 [node name="Moeda" parent="." instance=ExtResource( 6 )]
-position = Vector2( 491, 321 )
+position = Vector2( 552, 419 )
+
+[node name="Moeda3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 434, 312 )
+
+[node name="Moeda2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 328, 415 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 194, 335 )
+position = Vector2( 201, 346 )
+gravity = 13
 walk_speed = 150
+
+[node name="Nuvem" type="Sprite" parent="."]
+position = Vector2( 190, 187 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem" type="Sprite" parent="Nuvem"]
+position = Vector2( 32, 0 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem3" type="Sprite" parent="Nuvem"]
+position = Vector2( 130, -70 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem2" type="Sprite" parent="Nuvem"]
+position = Vector2( 98, -70 )
+texture = ExtResource( 7 )
+
+[node name="Grade" type="Sprite" parent="Nuvem"]
+position = Vector2( 5, 247 )
+texture = ExtResource( 10 )
+
+[node name="Arvore" type="Sprite" parent="Nuvem"]
+position = Vector2( 307, 229 )
+texture = ExtResource( 8 )
+
+[node name="Nuvem4" type="Sprite" parent="Nuvem"]
+position = Vector2( 162, -70 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem5" type="Sprite" parent="Nuvem"]
+position = Vector2( 212, 26 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem6" type="Sprite" parent="Nuvem"]
+position = Vector2( 244, 26 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem7" type="Sprite" parent="Nuvem"]
+position = Vector2( 275, 26 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem8" type="Sprite" parent="Nuvem"]
+position = Vector2( 376, -30 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem9" type="Sprite" parent="Nuvem"]
+position = Vector2( 408, -30 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem10" type="Sprite" parent="Nuvem"]
+position = Vector2( 516, 46 )
+texture = ExtResource( 7 )
+
+[node name="Nuvem11" type="Sprite" parent="Nuvem"]
+position = Vector2( 548, 46 )
+texture = ExtResource( 7 )
+
+[node name="Portal" parent="." instance=ExtResource( 9 )]
+position = Vector2( 825, 405 )
+
+[connection signal="body_entered" from="Portal" to="Bloco" method="_on_Portal_body_entered"]

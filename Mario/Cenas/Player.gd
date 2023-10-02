@@ -1,10 +1,9 @@
 extends KinematicBody2D
-
-#class_name Player
+class_name Player
 
 export var gravity = 10
 export var walk_speed = 150
-export var jump_force = -350
+export var jump_force = -250
 export var velocity = Vector2()
 export var can_double_jump = true
 export var coins = 0
@@ -45,7 +44,7 @@ func _physics_process(delta):
 
 
 func _on_Notificador_screen_exited():
-	emit_signal("death")
+	emit_signal("morreu")
 
-func _death():
-	$AnimacaoPlayer.play("death")
+func die():
+	$AnimationPlayer.play("morte")
