@@ -48,3 +48,7 @@ func _on_Notificador_screen_exited():
 
 func die():
 	$AnimationPlayer.play("morte")
+	
+func volta():
+	position.x = 201
+	position.y = 346
