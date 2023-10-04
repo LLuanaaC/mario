@@ -1,13 +1,11 @@
 extends Area2D
 
-signal pegou_moeda
-
-
-func _ready():
-	pass
+signal pegou
 
 
 func _on_Moeda_body_entered(body):
-	if body.name == "Player":
-		emit_signal("pegou_moeda")
+	if body is Player:
+		Global.score += 1
+		get_node("/root/Level/CanvasLayer").update_score()
 		queue_free()
+	

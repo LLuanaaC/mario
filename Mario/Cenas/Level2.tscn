@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets Mario/mariotile.png" type="Texture" id=1]
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Cenas/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Cenas/Bloco.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Cenas/FimMapa.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets Mario/AtlasTexture/HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "mariotile.png 0"
@@ -347,3 +348,5 @@ position = Vector2( 550, 242 )
 
 [node name="FimMapa" parent="." instance=ExtResource( 7 )]
 position = Vector2( 20, 665 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 8 )]

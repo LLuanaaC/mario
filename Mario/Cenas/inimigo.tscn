@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets Mario/AtlasTexture/goomba_wall_1.tres" type="Texture" id=1]
 [ext_resource path="res://Assets Mario/AtlasTexture/goomba_wall_0.tres" type="Texture" id=2]
 [ext_resource path="res://Cenas/inimigo.gd" type="Script" id=3]
-[ext_resource path="res://Assets Mario/AtlasTexture/goomba_wall_2.tres" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "amassado",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walk",
@@ -34,7 +28,6 @@ script = ExtResource( 3 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 1
 playing = true
 
 [node name="Colisao" type="CollisionShape2D" parent="."]
@@ -57,6 +50,10 @@ autostart = true
 position = Vector2( 0, 1 )
 shape = SubResource( 4 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.13
+
 [connection signal="body_entered" from="AreaImpacto" to="." method="_on_AreaImpacto_body_entered"]
 [connection signal="timeout" from="TimerPatrulha" to="." method="_on_TimerPatrulha_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -119,4 +119,8 @@ limit_bottom = 600
 anims/RESET = SubResource( 3 )
 anims/morte = SubResource( 4 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+
 [connection signal="screen_exited" from="Notificador" to="." method="_on_Notificador_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

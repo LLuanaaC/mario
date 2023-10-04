@@ -46,9 +46,14 @@ func _physics_process(delta):
 func _on_Notificador_screen_exited():
 	emit_signal("morreu")
 
-func die():
-	$AnimationPlayer.play("morte")
-	
 func volta():
 	position.x = 201
 	position.y = 346
+	
+func die():
+	$AnimationPlayer.play("morte")
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	get_tree().reload_current_scene()

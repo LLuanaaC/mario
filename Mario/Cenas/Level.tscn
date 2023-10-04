@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Cenas/Level.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets Mario/sounds/01. Ground Theme.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Cenas/Portal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets Mario/AtlasTexture/grade.tres" type="Texture" id=10]
 [ext_resource path="res://Cenas/FimMapa.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets Mario/AtlasTexture/HUD.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Node2D"]
 
@@ -116,6 +117,8 @@ texture = ExtResource( 7 )
 position = Vector2( 825, 405 )
 
 [node name="FimMapa" parent="." instance=ExtResource( 11 )]
-position = Vector2( -55, 639 )
+position = Vector2( -55, 622 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 12 )]
 
 [connection signal="body_entered" from="Portal" to="Bloco" method="_on_Portal_body_entered"]
